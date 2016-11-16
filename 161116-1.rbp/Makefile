@@ -1,6 +1,6 @@
 include ../Make.global_options
 
-PDF=161110-1.pdf
+PDF=161116-1.pdf
 
 .PHONY: clean
 
@@ -12,4 +12,4 @@ all: $(PDF)
 	$(LATEX) $(LATEXFLAG) $< > /dev/null 2>&1
 
 clean:
-	$(RM) $(RMFLAG) $(LATEX_CLEAN) $(PDF)
+	$(RM) $(RM_FLAG) $(LATEX_CLEAN) $(PDF)

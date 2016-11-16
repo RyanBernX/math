@@ -12,5 +12,5 @@ all: $(PDF)
 	$(LATEX) $(LATEXFLAG) $< > /dev/null 2>&1
 
 clean:
-	$(RM) $(RM_FLAG) $(PDF)
+	$(RM) $(RM_FLAG) $(LATEX_CLEAN) $(PDF)
 

@@ -7,4 +7,5 @@ RM_FLAG=-f
 
 LATEX=xelatex
 LATEXFLAG=-synctex=1 -interaction=nonstopmode
+LATEX_CLEAN=*.aux *.log *.out *.synctex.gz
 

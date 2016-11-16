@@ -1,0 +1,22 @@
+\documentclass{article}
+
+\usepackage{amsmath, amssymb}
+
+\begin{document}
+Let $H\in \mathbb{R}^{n\times n}$ have the form
+\[
+H=\left(\begin{array}{cc}
+\alpha & z^T \\
+z & D \\
+\end{array}
+\right)
+\]
+where $z = (z_2, z_3, \ldots, z_n)'$, 
+$D=\mathrm{diag}\{d_2, d_3, \ldots, d_n\}$.
+$\lambda$ is an eigenvalue of $H$, which satisfies 
+$\lambda \neq d_j~~j=2,3,\ldots n$ and $\lambda \neq \alpha$. 
+Prove that $f(\lambda) = 0$, where
+\[
+f(\lambda)=\lambda - \alpha-\sum_{j=2}^n\frac{z_j^2}{\lambda - d_j}
+\]
+\end{document}
