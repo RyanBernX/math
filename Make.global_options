@@ -1,0 +1,10 @@
+CD=cd
+ECHO=echo
+MAKE=make
+RM=rm
+RM_FLAG=-f
+
+
+LATEX=xelatex
+LATEXFLAG=-synctex=1 -interaction=nonstopmode
+
