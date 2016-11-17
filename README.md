@@ -5,3 +5,6 @@
 - master 分支中含有生成题目的 TeX 源码。
 - 做出 issue 中的所有题目可以获得 taroxd 女装照一张。
 - 如果你有任何好玩的题目，也可以自行发起 issue。
+
+# 文档地址
+https://ryanbernx.github.io/math/
