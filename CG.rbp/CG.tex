@@ -1,0 +1,49 @@
+\documentclass[a4paper]{article}
+\usepackage{amsmath, amssymb}
+
+\title{Problems for Conjugate Gradient Method in Solving Linear Systems}
+\author{RyanBern}
+\date{\today}
+
+\begin{document}
+\maketitle
+\begin{enumerate}
+\item Let $\{d_0, d_1, \ldots, d_{k-1}\}$ be a set of vectors which satisfy
+$d_i^TAd_j=\delta_{ij}$, where $A$ is positive definite and $\delta_{ij}$ is
+the Kronecker delta. Suppose that we have searched the minimum value along
+each $d_i$ sequentially(therefore we have a sequence of points $x_0, x_1, \cdots, x_{k-1}$).
+Let $g_j=Ax_j-b$ be the gradient of $f$ at $x=x_j$, prove that $g_k^Td_j=0,~~j=0,1,\cdots,k-1$.
+
+\emph{Hint: if we do linear search along $x_{k-1}+t_{k-1}d_{k-1}$, then at the optimal $t_{k-1}$, we have
+$g_{k}^Td_{k-1}=0$}.
+\item Let $\{d_0, d_1, \ldots, d_{k-1}\}$ be a set of vectors which satisfy
+$d_i^TAd_j=0$ for any $0\leqslant i<j\leqslant k-1$. $g_j=Ax_j-b$ is the gradient of $f$ at $x=x_j$. Furthermore, suppose
+$d_0=-g_0$. Let $d_k=-g_k+\sum_{j=0}^{k-1}a_jd_j$ be the searching direction at step $k$
+which satisfies $d_k^TAd_j=0$ for all $j=0,1,\ldots,k-1$. Prove that $a_j=0,~~j=0,1,\ldots,k-2$.
+
+\item Compute the optimal $t_k$ and $a_{k-1}$ at step $k$. Your results should have
+a simple form which only includes matrix-vector production and vector-vector production.
+
+\item Implement the conjugate gradient algorithm for optimizing the quadratic function and
+test your program with the following examples.
+\begin{enumerate}
+\item $A\in \mathbb{R}^{n\times n}$, where $n=60000$, and has the form
+\[
+A=\left(\begin{array}{ccccc}
+10 & 1 &&&\\
+1 & 10 & 1 &&\\
+&1&\ddots&\ddots &\\
+&&\ddots&\ddots& 1\\
+&&& 1 & 10\\
+\end{array}
+\right)
+\]
+$b$ and $x_0$ can be chosen randomly.
+\item $A=(a_{ij})\in \mathbb{R}^{n\times n}$, where $n=40$ and $a_{ij}=\frac{1}{i+j-1}$.
+$b=(b_i)$, where $b_i=\sum_{j=1}^{n}a_{ij}$. $x_0$ is chosen randomly. Obviously, the
+solution of $Ax=b$ is $x=(1,1,\ldots,1)^T$. Apply the Gaussian elimination with pivoting
+to solve the linear system again, and explain what you've observed.
+\end{enumerate}
+
+\end{enumerate}
+\end{document}
