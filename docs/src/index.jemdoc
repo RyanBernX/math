@@ -1,0 +1,17 @@
+# jemdoc: menu{MENU}{index.html}, nofooter
+= List of magic codes
+
+== LU Factorization{{<a name="lu"></a>}}
+LU Factorization is to factorize a square or rectangular matrix $A$
+into an upper-triangular matrix $U$ and a lower-triangular $L$. It can be
+applied to the /Gaussian Elimination/. Also, partial pivoting is used
+to handle general cases and reduce the computational errors.
+\(
+    PA=LU
+\)
+
+[lu/index.html Manual of Codes]
+
+== Conjugate Gradient Method for Solving Linear Systems{{<a name="cg"></a>}}
+TODO
+
