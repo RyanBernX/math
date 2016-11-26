@@ -127,7 +127,7 @@ void rb_daxpy(int n, double a, const double *X, int incx, \
 
 int rb_idamax(int n, double *X, int incx){
   int idm, i;
-  int vdm;
+  double vdm;
   double t;
 
   if (n <= 0) return 0;

@@ -1,0 +1,8 @@
+\form#0:$Ax=b$
+\form#1:$A$
+\form#2:$y\leftarrowAx$
+\form#3:$x\leftarrow ax$
+\form#4:$y\leftarrow y+ax$
+\form#5:$x^Ty$
+\form#6:$z=x-y$
+\form#7:$y\leftarrow Ax$

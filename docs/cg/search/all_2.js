@@ -1,0 +1,10 @@
+var searchData=
+[
+  ['rb_5fdamax',['rb_damax',['../cg__impls_8c.html#af2c2ce4e84b6557634262133bcc11852',1,'rb_damax(int n, const double *X, int incx):&#160;cg_impls.c'],['../cg__impls_8h.html#a11506c5297c8b5b7ee994eaa6e8ba4a3',1,'rb_damax(int, const double *, int):&#160;cg_impls.c']]],
+  ['rb_5fdaxpy',['rb_daxpy',['../cg__impls_8c.html#a6f2a94ecc7631691c6a85c615377afe5',1,'rb_daxpy(int n, double a, const double *X, int incx, double *Y, int incy):&#160;cg_impls.c'],['../cg__impls_8h.html#a315602b4350a604ffeda07341c46b358',1,'rb_daxpy(int, double, const double *, int, double *, int):&#160;cg_impls.c']]],
+  ['rb_5fdcgsv',['rb_dcgsv',['../cg__impls_8c.html#a95d80b3187df438bb1a6a3652174b1f7',1,'rb_dcgsv(int n, Aop A, void *ctxt, const double *b, double *sol):&#160;cg_impls.c'],['../cg__impls_8h.html#aa4f222cd877363eaf0b5f39dbcf4398e',1,'rb_dcgsv(int, Aop, void *, const double *, double *):&#160;cg_impls.c']]],
+  ['rb_5fdcopy',['rb_dcopy',['../cg__impls_8c.html#a1e536d38dcceab83f97836711422eb91',1,'rb_dcopy(int n, const double *X, int incx, double *Y, int incy):&#160;cg_impls.c'],['../cg__impls_8h.html#ad4a0edc76a3b42bcb707d868382e0556',1,'rb_dcopy(int, const double *, int, double *, int):&#160;cg_impls.c']]],
+  ['rb_5fddot',['rb_ddot',['../cg__impls_8c.html#a84efa918b0d02de74f58c11afd5b647b',1,'rb_ddot(int n, const double *X, int incx, const double *Y, int incy):&#160;cg_impls.c'],['../cg__impls_8h.html#ab86fddacf6d170223dc47e217ba1776a',1,'rb_ddot(int, const double *, int, const double *, int):&#160;cg_impls.c']]],
+  ['rb_5fdscal',['rb_dscal',['../cg__impls_8c.html#ae7b41e786049eb087123b1e158ea369e',1,'rb_dscal(int n, double a, double *X, int incx):&#160;cg_impls.c'],['../cg__impls_8h.html#a114afc478eb496eebc10177270fc0587',1,'rb_dscal(int, double, double *, int):&#160;cg_impls.c']]],
+  ['rb_5fdsub',['rb_dsub',['../cg__impls_8c.html#ac71b25df4a50abf0a002c0886517ce33',1,'rb_dsub(int n, const double *X, int incx, const double *Y, int incy, double *Z, int incz):&#160;cg_impls.c'],['../cg__impls_8h.html#a83e08249e3322e6b3d106e3f8b687e9e',1,'rb_dsub(int, const double *, int, const double *, int, double *, int):&#160;cg_impls.c']]]
+];
