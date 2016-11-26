@@ -13,5 +13,10 @@ to handle general cases and reduce the computational errors.
 [lu/index.html Manual of Codes]
 
 == Conjugate Gradient Method for Solving Linear Systems{{<a name="cg"></a>}}
-TODO
+Conjugate gradient method can be applied to solve linear systems. It requires
+the matrix $A$ to be positive definite. CG is an iterative method and only
+needs the user to provide the matrix-vector operator. In other words, the
+explicit form of $A$ isn't needed here.
+
+[cg/index.html Manual of Codes]
 

@@ -10,8 +10,7 @@ docs : $(PHDOCS)
 
 $(PREFIX)%.html : %.jemdoc MENU
 	$(UTILS)jemdoc.py -o $@ $<
-	rm -f ../eqs
-	cp -r eqs ../
+	cp  eqs/*.png ../eqs
 
 clean :
 	rm -f $(PREFIX)*.html
