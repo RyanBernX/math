@@ -1,0 +1,73 @@
+\documentclass[a4paper]{article}
+\usepackage{amsmath, amssymb}
+
+\title{Problems for QR Factorization}
+\author{RyanBern}
+\date{\today}
+\begin{document}
+\maketitle
+\begin{enumerate}
+\item \emph{(Easy)}Consider the normal equation
+\[
+X^TX\beta = X^TY
+\]
+where $X\in\mathbb{R}^{m\times n},m \geqslant n$ and $Y\in\mathbb{R}^{m}$.
+Prove that the solution set of the equation is non-empty. \emph{Hint: you may
+have to show that the ranks of the coefficient matrix and the augmented matrix
+are equal.}
+
+\item \emph{(Medium)}Review the Householder QR factorization and answer the following questions.
+\begin{enumerate}
+\item Let $X\in\mathbb{R}^{m\times n}, m \geqslant n$, then what's the complexity
+of Householder QR in terms of arithmetic operations? Only the highest degree
+terms are needed.
+\item Let $X\in\mathbb{R}^{2n\times n}$, and be composed of two upper-triangular
+matrices, i.e.
+\[
+X=\left(\begin{array}{c}
+R_1 \\
+R_2 \\
+\end{array}
+\right)
+\]
+where $R_1$ and $R_2$ are upper-triangular. Write down an efficient algorithm to
+perform Householder QR factorization on $X$. What's the complexity of your
+algorithm? \emph{Hint: you should make use of the special structure of $X$.}
+\end{enumerate}
+
+\item \emph{(Hard, Programming)} Practical Householder QR Factorization. In most
+numerical algebra softwares such as \textsc{lapack}, QR factorization is implemented
+in a slightly different way. Recall the definition of Householder transformation,
+$H=I-2vv^T$, where $v\in\mathbb{R}^{m}$ is a vector and has unit Euclidean norm.
+Most softwares use a different definition of $H$ instead of $H=I-2vv^T$. They prefer
+$H=I-\tau uu^T$ where $u$ is a vector in $\mathbb{R}^{m}$ and satisfies $u_1=1$,
+$\tau$ is a scalar called Householder multiplier. In practical QR, the $Q$ factor
+is stored implicitly, by overwriting the strict lower trapezoidal part of $X$ with
+the scaled Householder vector $u_i$. And the upper triangular part is overwritten
+by the $R$ factor exactly. Note that the first element of $u_i$ is 1 so
+there's no need for storing it. Also, an extra array of $\tau$ is needed to store
+those Householder multipliers. For example, if $X$ has 5 rows and 4 columns, after
+QR factorization, $X$ should be overwritten by
+\[
+X=\left(\begin{array}{cccc}
+r_{11} & r_{12} & r_{13} & r_{14} \\
+u_{21} & r_{22} & r_{23} & r_{24} \\
+u_{31} & u_{32} & r_{33} & r_{34} \\
+u_{41} & u_{42} & u_{43} & r_{44} \\
+u_{51} & u_{52} & u_{53} & u_{54} \\
+\end{array}
+\right)
+\]
+Also, the $\tau$ array should be $(\tau_1, \tau_2, \tau_3, \tau_4)$.
+\begin{enumerate}
+\item Derive the expression of $\tau$ and $u$ such that $Hx=\alpha e_1$, where
+$x$ is given and $e_1=(1, 0, \ldots, 0)^T$.
+\item Implement the practical Householder QR.
+\item Suppose we need the $Q$ factor explicitly, show how to obtain the explicit
+$Q$ factor from the implicitly stored Householder vectors. Implement your algorithm.
+\end{enumerate}
+\item \emph{(Medium, Programming)}Consider the Hilbert matrix of order 20. Orthogonalize
+the matrix using Gram-Schmidt process and QR factorization respectively and check
+your results. Are these computed matrices numerically orthogonal?
+\end{enumerate}
+\end{document}
