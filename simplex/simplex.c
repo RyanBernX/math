@@ -41,7 +41,7 @@ void swap(int *a, int *b)
 int n, m; //n个变量，m个约束条件
 double A[MAXN][MAXM];
 int base[MAXN+MAXM], unbase[MAXM+MAXN]; //基本变量与非基本变量
-void pivot(int x, int y) //转轴
+void pivot(int x, int y) //转动
 {
     swap(base+x, unbase+y);
     double k = A[x][y];
@@ -89,7 +89,7 @@ int simplex()
         double inf = 1e15;
         for(int i = 1; i <= m; i++)  //找到对y约束最紧的变量
         {
-            double t = A[i][0]/A[i][y];
+            double t = A[i][0]/A[i][y]; 
             if(dcmp(A[i][y]) > 0 && (!x || t < inf))
             {
                 inf = t;
