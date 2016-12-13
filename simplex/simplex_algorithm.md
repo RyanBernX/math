@@ -51,9 +51,93 @@
 为了利用单纯形算法高效地求解线性规划，我们更喜欢把其中的除非负约束外的约束转换成等式约束。
 
 对于一个约束<img src="http://latex.codecogs.com/gif.latex? \sum_{j=1}^{n}a_{ij} \le b_{i}" border="0"/> 引入一个松弛变量s，约束即可写作:
-<img src="http://latex.codecogs.com/gif.latex? s = b_{i} - \sum_{j=1}^{n}a_{ij}, s \ge 0" border="0"/>
+<img src="http://latex.codecogs.com/gif.latex? s = b_{i} - \sum_{j=1}^{n}a_{ij}, s \ge 0" border="0"/>。
+一般地，为了方便常会用<img src="http://latex.codecogs.com/gif.latex? x_{n+i}" border="0"/> 作为第i个约束条件的松弛变量。因此第i约束条件就可以写作: 
+<img src="http://latex.codecogs.com/gif.latex? x_{n+i} = b_{i} - \sum_{j=1}^{n}a_{ij}x_{j}, x_{n+i} \ge 0" border="0"/>
 
-用一个例子来说明上述描述线性规划问题的方法:
+##### example:用一个例子来说明上述描述线性规划问题的方法:
+
+最小化 <img src="http://latex.codecogs.com/gif.latex?-2x_{1} + 3x_{2}" border="0"/>
+
+满足约束条件
+
+　　　　　　<img src="http://latex.codecogs.com/gif.latex?x_{1} + x_{2} = 7" border="0"/> 　
+
+　　　　　　<img src="http://latex.codecogs.com/gif.latex?x_{1} - 2x_{2} \le 4" border="0"/>　
+
+　　　　　　<img src="http://latex.codecogs.com/gif.latex?x_{1} \ge 0" border="0"/>
+
+- 最小化目标转变成最大化:
+
+最大化 <img src="http://latex.codecogs.com/gif.latex?2x_{1} - 3x_{2}" border="0"/>
+
+满足约束条件
+
+　　　　　　<img src="http://latex.codecogs.com/gif.latex?x_{1} + x_{2} = 7" border="0"/> 　
+
+　　　　　　<img src="http://latex.codecogs.com/gif.latex?x_{1} - 2x_{2} \le 4" border="0"/>　
+
+　　　　　　<img src="http://latex.codecogs.com/gif.latex?x_{1} \ge 0" border="0"/>
+
+- 等式约束
+
+拆开等式约束:
+
+最大化 <img src="http://latex.codecogs.com/gif.latex?2x_{1} - 3x_{2}" border="0"/>
+
+满足约束条件
+
+　　　　　　<img src="http://latex.codecogs.com/gif.latex?x_{1} + x_{2} \le 7" border="0"/> 　
+
+　　　　　　<img src="http://latex.codecogs.com/gif.latex?-x_{1} - x_{2} \le -7" border="0"/> 　
+
+　　　　　　<img src="http://latex.codecogs.com/gif.latex?x_{1} - 2x_{2} \le 4" border="0"/>　
+
+　　　　　　<img src="http://latex.codecogs.com/gif.latex?x_{1} \ge 0" border="0"/>
+
+
+- 增加非负约束　
+
+<img src="http://latex.codecogs.com/gif.latex?x_{2}" border="0"/> 替换为 <img src="http://latex.codecogs.com/gif.latex?x_{2}-x_{3}" border="0"/>，添加对<img src="http://latex.codecogs.com/gif.latex?x_{2},x_{3}" border="0"/>的非负约束，得到
+
+
+最大化 <img src="http://latex.codecogs.com/gif.latex?2x_{1} - 3x_{2}+3x_{3}" border="0"/>
+
+满足约束条件
+
+　　　　　　<img src="http://latex.codecogs.com/gif.latex?x_{1} + x_{2} - x_{3}\le 7" border="0"/> 　
+
+　　　　　　<img src="http://latex.codecogs.com/gif.latex?-x_{1} - x_{2}+x_{3} \le -7" border="0"/> 　
+
+　　　　　　<img src="http://latex.codecogs.com/gif.latex?x_{1} - 2x_{2} + 2x_{3}\le 4" border="0"/>　
+
+　　　　　　<img src="http://latex.codecogs.com/gif.latex?x_{1} \ge 0, x_{2} \ge 0 ,x_{3} \ge 0" border="0"/>
+      
+- 标准型到松弛型
+
+除了非负约束外，有3个约束条件，于是增加松弛变量<img src="http://latex.codecogs.com/gif.latex?x_{4} , x_{5}  ,x_{6}" border="0"/>
+
+最大化 <img src="http://latex.codecogs.com/gif.latex?2x_{1} - 3x_{2}+3x_{3}" border="0"/>
+
+满足约束条件
+
+　　　　　　<img src="http://latex.codecogs.com/gif.latex?x_{4} = 7 - x_{1} - x_{2} + x_{3}" border="0"/> 　
+
+　　　　　　<img src="http://latex.codecogs.com/gif.latex?x_{5} = -7 + x_{1} + x_{2} - x_{3}" border="0"/> 　
+
+　　　　　　<img src="http://latex.codecogs.com/gif.latex?x_{6} = 4 - x_{1} + 2x_{2} - 2x_{3}" border="0"/>　
+
+　　　　　　<img src="http://latex.codecogs.com/gif.latex?x_{1} \ge 0, x_{2} \ge 0 ,x_{3} \ge 0,x_{4} \ge 0,x_{5} \ge 0,x_{6} \ge 0" border="0"/>
+
+<del>作业:请自行练习描述线性规划问题的方法</del>
+
+### 解决线性规划问题的单纯形法:
+
+
+
+
+
+
 
 
 
