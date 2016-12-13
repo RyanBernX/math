@@ -217,7 +217,16 @@
 此时目标函数右边变量系数全部为负数，且变量具有非负约束，显然这时候能得到的z的最大值为28。当且仅当<img src="http://latex.codecogs.com/gif.latex?x_{3} = x_{5} = x_{6} = 0" border="0"/>。带入解得<img src="http://latex.codecogs.com/gif.latex?x_{1} = 8, x_{2} = 4, x_{4} = 18"/>。除去附加的松弛变量，最终这个线性规划最优解为<img src="http://latex.codecogs.com/gif.latex?x_{1} = 8, x_{2} = 4, x_{3} = 0, z = 28" border="0"/>
 
 ### 单纯形算法的c语言代码实现
+如需参考，见<a href="https://github.com/sxysxy/math/blob/master/simplex/simplex.c">https://github.com/sxysxy/math/blob/master/simplex/simplex.c</a>，有详细注释。
 
+<del>作业:</del>
 
+非标准型转换为标准型魔法码(github上给出的参考代码要求输入的是标准型)
+
+输出目标函数达到最大值时自变量的取值
+
+### 后记
+
+### 参考资料
 
 

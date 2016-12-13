@@ -1,5 +1,21 @@
 //-std=c99 or g++
-//输入标准型线性规划，输出目标函数最优解
+//输入 标准型 线性规划，输出目标函数最优解
+//输入格式:
+/*
+ 第一行两个整数n, m，表示n个自变量，m个约束
+ 第二行n个正数，表示目标函数自变量前的系数
+ 接下来m行，每行n+1个整数
+     前n个正数描述了这个约束的自变量前的系数，最后一个正数描述了这个约束 <=号 右边的数值
+ 例: 
+ 输入(讲义里面讲单纯形法时用的例子):
+ 3 3 
+ 3 1 2
+ 1 1 3 30
+ 2 2 5 24
+ 4 1 2 36
+ 输出:
+ 28.00000000
+*/
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
@@ -89,8 +105,8 @@ void test()
     freopen("test_data.txt", "r", stdin);  //这个文件里面就是讲义里面的例子。
     scanf("%d %d", &n, &m);
     for(int i = 1; i <= n; i++)
-        scanf("%lf", A[0]+i);
-    for(int i = 1; i <= m; scanf("%lf", A[i++]))
+        scanf("%lf", A[0]+i);  //A[0]存目标函数，因此最后A[0][0]为目标函数最大值
+    for(int i = 1; i <= m; scanf("%lf", A[i++])) //b(i)存到A[i][0]里
         for(int j = 1; j <= n; j++)scanf("%lf", A[i]+j);
     switch(simplex())
     {
