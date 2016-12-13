@@ -184,4 +184,38 @@
 
 这样的一次操作叫做**转动(pivot)**
 
+然后选择变量<img src="http://latex.codecogs.com/gif.latex?x_{2}" border="0"/>或者<img src="http://latex.codecogs.com/gif.latex?x_{3}" border="0"/>，不选<img src="http://latex.codecogs.com/gif.latex?x_{6}" border="0"/>是因为增大<img src="http://latex.codecogs.com/gif.latex?x_{6}" border="0"/>会导致目标z减小。
+
+如果选择<img src="http://latex.codecogs.com/gif.latex?x_{3}" border="0"/>，同样的方法，互换<img src="http://latex.codecogs.com/gif.latex?x_{3}" border="0"/>与<img src="http://latex.codecogs.com/gif.latex?x_{5}" border="0"/>可以得到新的但等价的约束系统:
+
+最大化 <img src="http://latex.codecogs.com/gif.latex?z = \frac{111}{4}+\frac{x_{2}}{16}-\frac{x_{5}}{8}-\frac{11x_{6}}{16}" border="0"/>
+
+满足约束条件
+
+　　　　　　<img src="http://latex.codecogs.com/gif.latex?x_{1} = \frac{33}{4}-\frac{x_{2}}{16}+\frac{x_{5}}{8}-\frac{5x_{6}}{16}" border="0"/> 　
+
+　　　　　　<img src="http://latex.codecogs.com/gif.latex?x_{3} = \frac{3}{2}-\frac{3x_{2}}{8}-\frac{x_{5}}{4}+\frac{x_{6}}{8}"  border="0"/> 　
+
+　　　　　　<img src="http://latex.codecogs.com/gif.latex?x_{4} = \frac{69}{4}+\frac{3x_{2}}{16}+\frac{5x_{5}}{8}-\frac{x_{6}}{16}" border="0"/>　
+
+　　　　　　<img src="http://latex.codecogs.com/gif.latex?x_{1} \ge 0, x_{2} \ge 0 ,x_{3} \ge 0,x_{4} \ge 0,x_{5} \ge 0,x_{6} \ge 0" border="0"/>
+      
+接下来也只剩下<img src="http://latex.codecogs.com/gif.latex?x_{2}" border="0"/>这个变量可选了，与<img src="http://latex.codecogs.com/gif.latex?x_{3}" border="0"/>互换，得到
+
+最大化 <img src="http://latex.codecogs.com/gif.latex?z = 28 - \frac{x_{3}}{6}-\frac{x_{5}}{6}-\frac{2x_{6}}{3}" border="0"/>
+
+满足约束条件
+
+　　　　　　<img src="http://latex.codecogs.com/gif.latex?x_{1} = 8+\frac{x_{3}}{6} + \frac{x_{5}}{6}-\frac{x_{6}}{3}" border="0"/> 　
+
+　　　　　　<img src="http://latex.codecogs.com/gif.latex?x_{2} = 4-\frac{8x_{3}}{3}-\frac{2x_{5}}{3}+\frac{x_{6}}{3}"  border="0"/> 　
+
+　　　　　　<img src="http://latex.codecogs.com/gif.latex?x_{4} = 18-\frac{x_{3}}{2}+\frac{x_{5}}{2}" border="0"/>　
+
+　　　　　　<img src="http://latex.codecogs.com/gif.latex?x_{1} \ge 0, x_{2} \ge 0 ,x_{3} \ge 0,x_{4} \ge 0,x_{5} \ge 0,x_{6} \ge 0" border="0"/>
+      
+此时目标函数右边变量系数全部为负数，且变量具有非负约束，显然这时候能得到的z的最大值为28。当且仅当<img src="http://latex.codecogs.com/gif.latex?x_{3} = x_{5} = x_{6} = 0" border="0"/>。带入解得<img src="http://latex.codecogs.com/gif.latex?x_{1} = 8, x_{2} = 4, x_{4} = 18"/>。除去附加的松弛变量，最终这个线性规划最优解为<img src="http://latex.codecogs.com/gif.latex?x_{1} = 8, x_{2} = 4, x_{3} = 0, z = 28" border="0"/>
+
+### 单纯形算法的c语言代码实现
+
 
