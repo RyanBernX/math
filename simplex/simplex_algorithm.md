@@ -1,18 +1,18 @@
-# 线性规划的单纯形法
+<h1> 线性规划的单纯形法 </h1>
 
-### 线性规划简介:
+<h3> 线性规划简介: </h3>
 
 线性规划(Linear Programming, LP)，是运筹学中研究较早、发展较快、应用广泛、方法较成熟的一个重要分支，它是辅助人们进行科学管理的一种数学方法。研究线性约束条件下线性目标函数的极值问题的数学理论和方法。英文缩写LP。它是运筹学的一个重要分支，广泛应用于军事作战、经济分析、经营管理和工程技术等方面。为合理地利用有限的人力、物力、财力等资源作出的最优决策，提供科学的依据。(来自百度百科)
 
-### 线性规划问题:
+<h3> 线性规划问题: </h3>
 
 在一般的线性规划问题中，我们希望优化一个满足一组线性不等式约束的线性函数。一直一组实数 <img src="http://latex.codecogs.com/gif.latex? (a_{1}, a_{2}...,a_{n})" border="0" /> ，对应的一组变量<img src="http://latex.codecogs.com/gif.latex? (x_{1}, x_{2}...,x_{n})" border="0" />。定义关于这些变量的一个线性函数:
 <img src="http://latex.codecogs.com/gif.latex? f(x_{1}, x_{2}...,x_{n}) = a_{1}x_{1} +  a_{2}x_{2} + ... + a_{n}x_{n} = \sum_{i=1}^{n}a_{i}x_{i}" border="0" /> 
 那么等式<img src="http://latex.codecogs.com/gif.latex? f(x_{1}, x_{2}...,x_{n}) = b" border="0" /> 和不等式 <img src="http://latex.codecogs.com/gif.latex? f(x_{1}, x_{2}...,x_{n}) \le b" border="0" /> 以及 <img src="http://latex.codecogs.com/gif.latex? f(x_{1}, x_{2}...,x_{n}) \ge b" border="0" /> 都称为"线性约束"。并且不久之后我们即将看到，我们可以把两种不等式的约束形式统一为<img src="http://latex.codecogs.com/gif.latex? f(x_{1}, x_{2}...,x_{n}) \le b'" border="0" /> 这种形式，然而之后在运行解决线性规划的单纯形法时又会将它变成等价的<img src="http://latex.codecogs.com/gif.latex? f(x_{1}, x_{2}...,x_{n}) = b_{0}" border="0" /> 形式。
 
-#### 描述线性规划问题:
+<h4> 描述线性规划问题: </h4>
 
-##### 线性规划问题的标准型:
+<h5> 线性规划问题的标准型: </h5>
 
 如果我们已知n个实数<img src="http://latex.codecogs.com/gif.latex? c_{1}, c_{2}..., c_{n}" border="0" />与m个实数<img src="http://latex.codecogs.com/gif.latex? b_{1}, b_{2}..., b_{m}" border="0" />，以及n\*m个实数<img src="http://latex.codecogs.com/gif.latex? a_{ij}, i = 1,2,...,m, j=1,2,..,n" border="0" />，我们希望找到n个实数<img src="http://latex.codecogs.com/gif.latex? x_{1}, x_{2},...,x_{n}" border="0" />
 
@@ -32,21 +32,23 @@
 
 注意到，标准型里面目标函数的目标是最大化，所有变量都具有非负约束，除了非负约束外的约束都是具有 <= 符号的非严格不等式。对于不满足标准型形式的线性规划，我们可以想办法将它转化为标准型:
 
-##### 问题1:目标函数的目标并非最大化，而是最小化。
+<h5> 问题1:目标函数的目标并非最大化，而是最小化。</h5>
 
 取负即可。也就是最小化 <img src="http://latex.codecogs.com/gif.latex? c^Tx " border="0" /> 等价于最大化 <img src="http://latex.codecogs.com/gif.latex? -c^Tx " border="0" />
 
-##### 问题2:一些变量不具有非负约束
+<h5> 问题2:一些变量不具有非负约束 </h5>
 
 对于不具有非负约束的变量<img src="http://latex.codecogs.com/gif.latex? x_{j}" border="0"/>，把<img src="http://latex.codecogs.com/gif.latex? x_{j}" border="0"/>每次出现的地方都替换为适当的<img src="http://latex.codecogs.com/gif.latex? x_{j}'-x_{j}''" border="0"/>，并增加非负约束<img src="http://latex.codecogs.com/gif.latex? x_{j}' \ge 0" border="0"/> <img src="http://latex.codecogs.com/gif.latex?, x_{j}'' \ge 0" border="0"/>
 
-##### 问题3:大于等于约束和等式约束
+思考:请尝试证明这样做得到的新的问题与原问题等价
+
+<h5>问题3:大于等于约束和等式约束 </h5>
 
 大于等于约束两边同时取负即可。即<img src="http://latex.codecogs.com/gif.latex? \sum_{j=1}^{n}a_{ij} \ge b_{i}" border="0"/> 等价于<img src="http://latex.codecogs.com/gif.latex? \sum_{j=1}^{n}-a_{ij} \le -b_{i}" border="0"/>
 
 等式约束拆成两个不等式约束。对于<img src="http://latex.codecogs.com/gif.latex? \sum_{j=1}^{n}a_{ij} = b_{i}" border="0"/> 等价于<img src="http://latex.codecogs.com/gif.latex? \sum_{j=1}^{n}a_{ij} \le b_{i}" border="0"/> 且 <img src="http://latex.codecogs.com/gif.latex? \sum_{j=1}^{n}-a_{ij} \le -b_{i}" border="0"/>
 
-##### 描述线性规划问题的松弛型
+<h5> 描述线性规划问题的松弛型 </h5>
 
 为了利用单纯形算法高效地求解线性规划，我们更喜欢把其中的除非负约束外的约束转换成等式约束。
 
@@ -55,7 +57,7 @@
 一般地，为了方便常会用<img src="http://latex.codecogs.com/gif.latex? x_{n+i}" border="0"/> 作为第i个约束条件的松弛变量。因此第i约束条件就可以写作: 
 <img src="http://latex.codecogs.com/gif.latex? x_{n+i} = b_{i} - \sum_{j=1}^{n}a_{ij}x_{j}, x_{n+i} \ge 0" border="0"/>
 
-##### example:用一个例子来说明上述描述线性规划问题的方法:
+<h5> example:用一个例子来说明上述描述线性规划问题的方法: </h5>
 
 最小化 <img src="http://latex.codecogs.com/gif.latex?-2x_{1} + 3x_{2}" border="0"/>
 
@@ -129,9 +131,11 @@
 
 　　　　　　<img src="http://latex.codecogs.com/gif.latex?x_{1} \ge 0, x_{2} \ge 0 ,x_{3} \ge 0,x_{4} \ge 0,x_{5} \ge 0,x_{6} \ge 0" border="0"/>
 
+思考:如果原先有一个等式约束，直接把它写到松弛型里面，与将它转变成标准型，再变成松弛型(这样就比前者多了一个约束条件)，问题是否等价？（提示:考虑后者引入的松弛变量s1 = s2 = 0)
+
 <del>作业:请自行练习描述线性规划问题的方法</del>
 
-### 解决线性规划问题的单纯形法:
+<h3> 解决线性规划问题的单纯形法: </h3>
 
 单纯形算法是求解线性规划的经典算法，它再最坏情况瞎执行时间并不是多项式级别的，但是在实际的应用中，它总是相当快速。
 
@@ -160,7 +164,7 @@
 　　　　　　<img src="http://latex.codecogs.com/gif.latex?x_{1} \ge 0, x_{2} \ge 0 ,x_{3} \ge 0,x_{4} \ge 0,x_{5} \ge 0,x_{6} \ge 0" border="0"/>
 
       
-术语：我们把约束条件不等号左边的变量称为**基本变量**，右边的称为**非基本变量**。
+术语：我们把松弛型约束条件等号左边的变量称为**基本变量**，右边的称为**非基本变量**。
 
 我们会选取目标函数里面某个系数为正的非基本变量<img src="http://latex.codecogs.com/gif.latex?x_{e}" border="0"/>，并尽可能增大<img src="http://latex.codecogs.com/gif.latex?x_{e}" border="0"/>的取值且不违反任何约束条件。由于<img src="http://latex.codecogs.com/gif.latex?x_{e}" border="0"/>的增大可能会导致其它变量值缩小，但是其它变量也存在非负约束，这样就约束了<img src="http://latex.codecogs.com/gif.latex?x_{e}" border="0"/>的取值的上界，我们选出对<img src="http://latex.codecogs.com/gif.latex?x_{e}" border="0"/>约束最紧的变量<img src="http://latex.codecogs.com/gif.latex?x_{l}" border="0"/>，令<img src="http://latex.codecogs.com/gif.latex?x_{e}" border="0"/> 与 <img src="http://latex.codecogs.com/gif.latex?x_{l}" border="0"/> 互换(代入法)得到一个新的等价的松弛型。具体对于我们这个例子就是:
 
@@ -183,6 +187,8 @@
 　　　　　　<img src="http://latex.codecogs.com/gif.latex?x_{1} \ge 0, x_{2} \ge 0 ,x_{3} \ge 0,x_{4} \ge 0,x_{5} \ge 0,x_{6} \ge 0" border="0"/>
 
 这样的一次操作叫做**转动(pivot)**
+
+(结合例子请思考:选择约束最紧的变量做互换的原因。提示:如果换的不是最紧的约束看看会违反什么性质)
 
 然后选择变量<img src="http://latex.codecogs.com/gif.latex?x_{2}" border="0"/>或者<img src="http://latex.codecogs.com/gif.latex?x_{3}" border="0"/>，不选<img src="http://latex.codecogs.com/gif.latex?x_{6}" border="0"/>是因为增大<img src="http://latex.codecogs.com/gif.latex?x_{6}" border="0"/>会导致目标z减小。
 
@@ -216,8 +222,26 @@
       
 此时目标函数右边变量系数全部为负数，且变量具有非负约束，显然这时候能得到的z的最大值为28。当且仅当<img src="http://latex.codecogs.com/gif.latex?x_{3} = x_{5} = x_{6} = 0" border="0"/>。带入解得<img src="http://latex.codecogs.com/gif.latex?x_{1} = 8, x_{2} = 4, x_{4} = 18"/>。除去附加的松弛变量，最终这个线性规划最优解为<img src="http://latex.codecogs.com/gif.latex?x_{1} = 8, x_{2} = 4, x_{3} = 0, z = 28" border="0"/>
 
-### 单纯形算法的c语言代码实现
+思考:每次转动操作交换的两个变量对单纯形法的运行时间有着怎样的影响？如何选择可以使单纯形法尽快结束？（提示:每次pivot尽可能让目标函数增大得多）
+
+<h3>单纯形算法代码实现 </h3>
 如需参考，见<a href="https://github.com/sxysxy/math/blob/master/simplex/simplex.c">https://github.com/sxysxy/math/blob/master/simplex/simplex.c</a>，有详细注释。
+
+伪代码:
+
+```
+simplex:
+    检查是否无解
+    loop:
+        找出目标函数中前面系数为正数的一个变量x
+        如果找不到x
+            返回目标函数的常数项(已找到目标函数最大值)
+        找到对x的增长约束最紧的变量y   
+        如果找不到y
+            返回Inf
+        互换变量x,y(pivot(x,y)，操作后问题与原来等价)
+```
+<del>pivot请自行实现</a>
 
 <del>作业:</del>
 
@@ -225,11 +249,19 @@
 
 输出目标函数达到最大值时自变量的取值
 
-### 后记
+思考:会不会存在一种情况:虽然一个线性规划问题有解，但是单纯形算法仍会无休止迭代下去。
 
-暂无
+思考:如果判断出这样一种无解的情况:
 
-### 参考资料
+<img src="http://latex.codecogs.com/gif.latex?-x_{1}+x_{2} = 4"/>　
+<img src="http://latex.codecogs.com/gif.latex?x_{2} = 2"/>
+<img src="http://latex.codecogs.com/gif.latex?x_{1} \ge 0, x_{2} \ge 0"/>
+
+<h3> 后记 </h3>
+
+周五(2016.12.16)在魔法裙里面讲了一波，收获颇为丰富，并且也搞明白了一些之前没明白的问题，并且补充了本文的内容)
+
+<h3> 参考资料 </h3>
 
 《算法导论》第三版
 
@@ -237,6 +269,6 @@
 
 内容如有错误欢迎指出！请联系<1441157749@qq.com>
 
-### 关于作者sxysxy
+<h3> 关于作者sxysxy </h3>
 
 QaQ 鶸渣一枚
