@@ -4,31 +4,52 @@
 \usepackage{amssymb,amsmath}
 \usepackage{geometry}
 \usepackage{graphicx}
+
+\title{魔法定级}
+\date{\today}
+\author{RyanBern}
+
 \begin{document}
-以下的每个魔法题目前面都有标注难度，难度的含义是相对于同类的魔法题目，并不是绝对的难度。
+\maketitle
+\textbf{说明}
+\begin{itemize}
+\item 以下的每个魔法题目前面都有标注难度，难度的含义是相对于同类的魔法题目，并不是绝对的难度。
 题目中涉及到的几何图形均省略，因为这些图形都很简单，描述起来不会产生歧义。
+\item 定级时需要根据自己目前正在攻读的学位进行选择，但可以选择自己攻读学位以上的等级。本科/研究生
+都被归入“大学”一级。
+\item 不同级别需要的题目数量不同。初中为3道；高中为6道；大学为9道。题目中至多选择两道处于自己
+等级以下的题目（例如如果要定成“大学”等级，那么至多只能选择两道初中或者高中的题目）。
+\item 大学魔法的前两大题，每小问算半个题目。
+\item 定级时，考官会根据提交答案的次数，选择问题的难度以及解法是否醋来对定级进行调整。
+\end{itemize}
+
 \section{初中魔法}
 \begin{enumerate}
-\item (easy)$\triangle ABC$是等腰三角形，而且它可以被分成两个等腰三角形。则$\triangle ABC$
-顶角的所有可能值是多少？
-\item (easy)现在有足够多的正五边形地砖和正十边形地砖，它们的边长都相等。请问能否用它们覆盖整个平面（地砖之间
-不能有重叠）？为什么？
-\item (medium)在$\triangle ABC$中，$AD$是$\angle BAC$的平分线，求证：$\frac{AB}{AC}=\frac{BD}{DC}$。
-（注：禁止使用相似三角形）。
+\item (easy)有54张纸牌，编号为1到54，初始按照编号从小到大的顺序依次放好。现在扔掉第1张，然后将第2张放到最下面，
+扔掉第3张，将第4张放到最下面，如此往复，直到只剩下一张牌为止。问最后剩下编号为多少的牌？
+\item (easy)从正方体 8 个顶点中随机取三个点，则构成等腰三角形的概率为？
+\item (medium)对平面内的$\triangle ABC$，存在同平面的点$P$，使得$\triangle PAB,\triangle PAC,\triangle PBC$
+面积相等。这样的点$P$有多少个？
+\item (medium)求证：$1+\frac{1}{2^2}+\frac{1}{3^2}+\cdots + \frac{1}{n^2}<\frac{7}{4}$。
 \item (hard)设$\triangle ABC$是等腰三角形，$AB=AC,\angle A=80^\circ$。点$O$为$\triangle ABC$内部
 一点，且$\angle OBC=10^\circ,\angle OCA=20^\circ$。求$\angle BAO$的度数。
 \end{enumerate}
+
 \section{高中魔法}
 \begin{enumerate}
 \item (easy)设$a,b,c$是实数，则$a^3+b^3+c^3=3abc$的条件为？
-\item (easy)设集合$M=\{1,2\}$，定义集合$A=\{x~|~\forall a \in x, a \in M \}$。则集合$A$和
-$M$的关系为？
+\item (easy)将四个半径为1的小球堆起来，两两相切，那么这个几何体的外切四面体的边长为？
+\item (easy)求证：$xy=1$在某种直角坐标替换下能够变成$u^2/a^2-v^2/b^2=1$的形式。
+\item (easy)三角形三个顶点对应的复数为$z_1,z_2,z_3$，并且有$\frac{z_2-z_1}{z_3-z_1}=1+2i$，则
+其面积和最长边的平方之比是？
 \item (medium)求值：$\cos\frac{2}{7}\pi+\cos\frac{4}{7}\pi+\cos\frac{6}{7}\pi$
 \item (medium)设椭圆$E:\frac{x^2}{a^2}+\frac{y^2}{b^2}=1,a>b>0$，点$P(x_0,y_0)$在椭圆
 上。过点$P$分别引出两条斜率为$k_1,k_2$的直线，满足$k_1+k_2=0$。两条直线分别交椭圆于点$A$和$B$。
 求证：$AB$的斜率是定值。
 \item (medium)设定义在实数上的函数$f$满足$f(f(x))=x$恒成立，并且$f$是单调递增。求证：满足条件的$f$存在且唯一。
-\item (hard)设数列$\{a_n\}$满足递推式$a_{n+1}=a_n^2+2,a_0=a$。求$a_n$的表达式。
+\item (hard)设数列$\{a_n\}$满足递推式$a_{n+1}=a_n^2-2,a_0=a$。求$a_n$的表达式。
+\item (hard)空间点集$A_n-\{(x,y,z)\in\mathbb{R}^3:\; 3|x|^n+|8x|^n+|z|*n \leqslant 1\}$，令
+$A=\bigcup_{n=1}^{\infty}A_n$，则$A$表示的几何体的体积是？
 \end{enumerate}
 \section{大学魔法}
 \begin{enumerate}
@@ -48,17 +69,33 @@ $M$的关系为？
 	在其他点连续。
 	\item 可微多元函数$f$在某点$x_0$处，对于任意向量$v$，$t=0$均为$g(t)=f(x_0+tv)$的极小值点。
 	但$x=x_0$不是$f$的极小值点。
+	\item 请构造$\mathbb{R}^2$上的子集$E$，使其满足存在$E$边界上的点$A$，使得对于任意$E$的内点$B$，
+	$A$与$B$不是道路连通的。
 	\end{enumerate}
 
 \item (easy)设定义在$(0,1)$的函数$f$满足$\sup_{x,y}\frac{|f(x)-f(y)|}{|x-y|^\alpha}<M$，其中
 $\alpha>1$，$M$是一个有限的常数。求证$f$在$(0,1)$上是常值。
-\item (easy)已知矩阵$A,B$均为半正定矩阵，求证$\mathrm{tr}(AB)\geqslant0$。
+\item (easy)求证$\|x+y\|_2=\|x\|_2+\|y\|_2$当且仅当$x,y$线性相关且$x^Ty\geqslant 0$。
+\item (easy)已知矩阵$A$正定，矩阵$B$半正定，求证$A,B$可以在同一个合同变换下对角化。
 \item (medium)设矩阵$A$的每个元素为$a_{ij}$，对于任意的$i$，满足$|a_{ii}|>\sum_{j\neq i}{|a_{ji}|}$。
 求证：$A$是非奇异矩阵。
-\item (medium)设$X$为概率空间$(\Omega,\mathcal{F},P)$上的随机变量，$f(x)$是凸函数。求证：
-$f(\mathbb{E}X)\leqslant \mathbb{E}f(X)$，其中$\mathbb{E}(\cdot)$表示对随机变量求期望。
+\item (medium)若$\|A\|<1$，并且$\|I\|=1$，其中$I$为单位阵，$\|\cdot\|$为任意矩阵范数。求证$I-A$可逆并且
+\begin{equation}
+\|(I-A)^{-1}\|\leqslant \frac{1}{1-\|A\|}
+\end{equation}
 \item (medium)设二元函数$f(x,y)$是凸函数，$C$是凸集。令$g(x)=\inf_{y\in C}f(x,y)$，求证：
 $g(x)$为凸函数。
+\item (medium)设矩阵$A$为循环矩阵，即
+\begin{equation}
+A=\left(\begin{array}{cccc}
+a_0 & a_1 & \cdots & a_{N-1} \\
+a_1 & a_2 & \cdots & a_0     \\
+\vdots & \vdots & \ddots & \vdots \\
+a_{N-1} & a_0 & \cdots & a_{N-2} \\
+\end{array}
+\right)
+\end{equation}
+试给出一个快速求解方程$Ax=b$的算法。
 \item (hard)设$Y_n$是一列独立同分布的随机变量，并且有$\mathbb{E}|Y_1|>0$。定义$S_n=Y_1+\cdots+Y_n$。
 设随机变量$T=\inf\{n:\; |S_n|>1 \}$（即$T$定义为第一个$n$使得$S_n$不在区间$[-1,1]$内）并规定$\inf\phi=\infty$。
 求证，存在正数$c$和$0<r<1$，使得$\mathbb{P}(T>n)\leqslant cr^n$对于任意的$n$恒成立。
