@@ -53,14 +53,13 @@ $A=\bigcup_{n=1}^{\infty}A_n$，则$A$表示的几何体的体积是？
 \end{enumerate}
 \section{大学魔法}
 \begin{enumerate}
-\item (easy)下列说法是否正确？如果正确请证明这个结论，如果不正确请举出反例。
+\item (easy)下列说法是否正确？请证明或者证伪之。
 	\begin{enumerate}
 	\item 复值函数$\sin(z)$是有界的。
 	\item 设函数$f(x)$在$\mathbb{R}$上可导，并且有$\lim_{x\rightarrow +\infty}f(x)=0$，
 	则有$\lim_{x\rightarrow +\infty}f'(x)=0$。
 	\item 可导函数$f(x)$在$\mathbb{R}$上为凸函数当且仅当$f'(x)$是单调递增的。
-	\item 设$A\in \mathbb{R}^{n\times n}$，则$A$可以分解为一个对称矩阵和一个反对称矩阵的和。并且这个分解是
-	唯一的。
+	\item 一元函数列$f_n$一致收敛与$f$，并且$f_n$和$f$均是无穷次可导，则$f_n'$也一致收敛于$f'$。
 	\item 在$n\times n$矩阵构成的线性空间中，可逆矩阵所组成的集合是道路连通的。
 	\end{enumerate}
 \item (easy)试构造出符合条件的函数或集合。
@@ -77,8 +76,11 @@ $A=\bigcup_{n=1}^{\infty}A_n$，则$A$表示的几何体的体积是？
 $\alpha>1$，$M$是一个有限的常数。求证$f$在$(0,1)$上是常值。
 \item (easy)求证$\|x+y\|_2=\|x\|_2+\|y\|_2$当且仅当$x,y$线性相关且$x^Ty\geqslant 0$。
 \item (easy)已知矩阵$A$正定，矩阵$B$半正定，求证$A,B$可以在同一个合同变换下对角化。
-\item (medium)设矩阵$A$的每个元素为$a_{ij}$，对于任意的$i$，满足$|a_{ii}|>\sum_{j\neq i}{|a_{ji}|}$。
-求证：$A$是非奇异矩阵。
+\item (medium)设$n$元函数
+\[
+f(x)=\max x_k + \frac{1}{2}\sum_{k=1}^{n}(x_k-a_k)^2
+\]
+求$f(x)$的一个最小值点。
 \item (medium)若$\|A\|<1$，并且$\|I\|=1$，其中$I$为单位阵，$\|\cdot\|$为任意矩阵范数。求证$I-A$可逆并且
 \begin{equation}
 \|(I-A)^{-1}\|\leqslant \frac{1}{1-\|A\|}
